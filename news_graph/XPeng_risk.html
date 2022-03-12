@@ -1,0 +1,52 @@
+
+    <html>
+    <head>
+      <script type="text/javascript" src="VIS/dist/vis.js"></script>
+      <link href="VIS/dist/vis.css" rel="stylesheet" type="text/css">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+
+    <div id="VIS_draw"></div>
+
+    <script type="text/javascript">
+      var nodes = [{'group': 'Event', 'id': 129, 'label': 'U.S.'}, {'group': 'Event', 'id': 17, 'label': 'Location'}, {'group': 'Event', 'id': 127, 'label': 'Renminbi'}, {'group': 'Event', 'id': 29, 'label': 'Organization'}, {'group': 'Event', 'id': 80, 'label': 'PRC'}, {'group': 'Event', 'id': 133, 'label': 'ADSs'}, {'group': 'Event', 'id': 128, 'label': 'China'}, {'group': 'Event', 'id': 132, 'label': 'the    Renminbi'}, {'group': 'Event', 'id': 121, 'label': 'SDR'}, {'group': 'Event', 'id': 59, 'label': 'the United States'}, {'group': 'Event', 'id': 60, 'label': 'Hong Kong'}, {'group': 'Event', 'id': 68, 'label': 'VIE'}, {'group': 'Event', 'id': 76, 'label': 'PBOC'}, {'group': 'Event', 'id': 119, 'label': 'the Executive Board'}, {'group': 'Event', 'id': 117, 'label': 'the International Monetary Fund'}, {'group': 'Event', 'id': 120, 'label': 'Euro'}, {'group': 'Event', 'id': 28, 'label': 'the National Bureau of Statistics of China'}];
+      var edges = [{'from': 129, 'label': '', 'to': 17}, {'from': 127, 'label': '', 'to': 29}, {'from': 80, 'label': '', 'to': 17}, {'from': 133, 'label': '', 'to': 29}, {'from': 128, 'label': '', 'to': 17}, {'from': 132, 'label': '', 'to': 29}, {'from': 121, 'label': '', 'to': 29}, {'from': 59, 'label': '', 'to': 17}, {'from': 60, 'label': '', 'to': 17}, {'from': 68, 'label': '', 'to': 29}, {'from': 76, 'label': '', 'to': 29}, {'from': 119, 'label': '', 'to': 29}, {'from': 117, 'label': '', 'to': 29}, {'from': 120, 'label': '', 'to': 29}, {'from': 28, 'label': '', 'to': 29}, {'from': 129, 'label': '', 'to': 127}, {'from': 127, 'label': '', 'to': 129}, {'from': 129, 'label': '', 'to': 80}, {'from': 80, 'label': '', 'to': 129}, {'from': 127, 'label': '', 'to': 80}, {'from': 80, 'label': '', 'to': 127}, {'from': 133, 'label': '', 'to': 129}, {'from': 129, 'label': '', 'to': 133}, {'from': 132, 'label': '', 'to': 129}, {'from': 129, 'label': '', 'to': 132}, {'from': 59, 'label': '', 'to': 129}, {'from': 59, 'label': '', 'to': 60}, {'from': 129, 'label': '', 'to': 59}, {'from': 129, 'label': '', 'to': 60}, {'from': 60, 'label': '', 'to': 59}, {'from': 60, 'label': '', 'to': 129}, {'from': 127, 'label': '', 'to': 68}, {'from': 80, 'label': '', 'to': 68}, {'from': 68, 'label': '', 'to': 127}, {'from': 68, 'label': '', 'to': 80}, {'from': 133, 'label': '', 'to': 127}, {'from': 127, 'label': '', 'to': 133}, {'from': 129, 'label': '', 'to': 76}, {'from': 76, 'label': '', 'to': 129}, {'from': 132, 'label': '', 'to': 80}, {'from': 80, 'label': '', 'to': 132}, {'from': 129, 'label': '', 'to': 117}, {'from': 129, 'label': '', 'to': 119}, {'from': 129, 'label': '', 'to': 121}, {'from': 129, 'label': '', 'to': 120}, {'from': 117, 'label': '', 'to': 129}, {'from': 117, 'label': '', 'to': 119}, {'from': 117, 'label': '', 'to': 121}, {'from': 117, 'label': '', 'to': 120}, {'from': 119, 'label': '', 'to': 129}, {'from': 119, 'label': '', 'to': 117}, {'from': 119, 'label': '', 'to': 121}, {'from': 119, 'label': '', 'to': 120}, {'from': 121, 'label': '', 'to': 129}, {'from': 121, 'label': '', 'to': 117}, {'from': 121, 'label': '', 'to': 119}, {'from': 121, 'label': '', 'to': 120}, {'from': 120, 'label': '', 'to': 129}, {'from': 120, 'label': '', 'to': 117}, {'from': 120, 'label': '', 'to': 119}, {'from': 120, 'label': '', 'to': 121}, {'from': 127, 'label': '', 'to': 128}, {'from': 129, 'label': '', 'to': 128}, {'from': 128, 'label': '', 'to': 127}, {'from': 128, 'label': '', 'to': 129}, {'from': 133, 'label': '', 'to': 132}, {'from': 132, 'label': '', 'to': 133}];
+
+      var container = document.getElementById("VIS_draw");
+
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+
+      var options = {
+          nodes: {
+              shape: 'circle',
+              size: 15,
+              font: {
+                  size: 15
+              }
+          },
+          edges: {
+              font: {
+                  size: 10,
+                  align: 'center'
+              },
+              color: 'red',
+              arrows: {
+                  to: {enabled: true, scaleFactor: 1.2}
+              },
+              smooth: {enabled: true}
+          },
+          physics: {
+              enabled: true
+          }
+      };
+
+      var network = new vis.Network(container, data, options);
+
+    </script>
+    </body>
+    </html>
+    
